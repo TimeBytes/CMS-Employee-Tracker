@@ -1,0 +1,24 @@
+{
+  "name": "cms-employee-tracker",
+  "version": "1.0.0",
+  "description": "CMS to track employees",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimeBytes/CMS-Employee-Tracker.git"
+  },
+  "author": "TimeBytes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TimeBytes/CMS-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/TimeBytes/CMS-Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0",
+    "inquirer": "^8.2.4",
+    "mysql2": "^3.3.2"
+  }
+}
