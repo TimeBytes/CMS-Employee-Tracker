@@ -25,7 +25,7 @@ When add department is selected, user is prompted with "What is the name of the 
 When add role is selected, user is prompted with "What is the name of the role?", "What is the salary of the role?" and it will list the departments for the role to go under.  
 ![screenshot of add a role](assets/images/screenshot-addarole.png)
 
-When add an employee is selected, user is prompted with "What is the employee's first name?", "What is the employee's last name?", a list of roles for the user to pick from, and a list of employee's to assign as their manager
+When add an employee is selected, user is prompted with "What is the employee's first name?", "What is the employee's last name?", a list of roles for the user to pick from, and a list of employee's to assign as their manager  
 ![screenshot of add an employee](assets/images/screenshot-addanemployee.png)
 
 When update an employee is selected, user is prompted a list of employee's to pick from, then a list of roles you want to assign the employee
