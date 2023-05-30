@@ -1,8 +1,9 @@
+// imported modules
 const inquirer = require("inquirer");
-// const cTable = require("console.table");
 const QD = require("./helpers/query");
 const Query = new QD();
 
+// function to prompt user
 async function promptUser() {
   const actionSelected = await inquirer.prompt([
     {
@@ -21,7 +22,7 @@ async function promptUser() {
       ],
     },
   ]);
-
+  // switch statement to execute the action selected
   switch (actionSelected.action) {
     case "View all departments":
       await Query.viewAllDepartments();
@@ -45,12 +46,14 @@ async function promptUser() {
       await Query.updateEmployeeRole();
       break;
     case "Quit":
-      return; // Exit the loop
+      // Exit the loop
+      return;
     default:
       break;
   }
-
-  await promptUser(); // Prompt again after executing the action
+  // Prompt again after executing the action
+  await promptUser();
 }
 
+// initial function call to prompt user
 promptUser();

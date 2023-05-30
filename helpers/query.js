@@ -1,42 +1,28 @@
-// select * from department
-
-// SELECT role.id AS role_id, title, salary, department.name FROM role JOIN department ON role.department_id = department.id;
-
-// SELECT e.id AS employee_id, e.first_name, e.last_name, r.title AS job_title, d.name AS department, r.salary, CONCAT(m.first_name, ' ', m.last_name) AS manager_name
-// FROM employee e
-// INNER JOIN role r ON e.role_id = r.id
-// INNER JOIN department d ON r.department_id = d.id
-// LEFT JOIN employee m ON e.manager_id = m.id;
-
-// INSERT INTO role (title, salary, department_id) SELECT ?, ?, department.id FROM department WHERE department.name = ?;
-
-// INSERT INTO department(name) VALUES(name);
-
-// INSERT INTO role(title,salary,department_id) VALUES (?,?,?) INNER JOIN role ON role.department_id = department.name;
-
-// INSERT INTO employee(first_name, last_name, role, manager);
-
-// SELECT e.first_name, e.last_name FROM employee AS e JOIN employee AS m ON e.manager_id = m.id
-
+// import dependencies
 const inquirer = require("inquirer");
 const db = require("../config/db_connection");
+const cTable = require("console.table");
+
+// display query results
 class Query {
+  // view all departments
   async viewAllDepartments() {
     let query = "SELECT * FROM department";
     await displayQuery(query);
   }
+  // view all roles
   async viewAllRoles() {
     let query =
       "SELECT role.id AS role_id, title, salary, department.name AS department FROM role JOIN department ON role.department_id = department.id;";
     await displayQuery(query);
   }
-
+  // view all employees
   async viewAllEmployees() {
     let query =
       "SELECT e.id AS employee_id, e.first_name, e.last_name, r.title AS job_title, d.name AS department, r.salary, CONCAT(m.first_name, ' ', m.last_name) AS manager_name FROM employee e INNER JOIN role r ON e.role_id = r.id INNER JOIN department d ON r.department_id = d.id LEFT JOIN employee m ON e.manager_id = m.id;";
     await displayQuery(query);
   }
-
+  // add department
   async addDepartment() {
     const userInput = await inquirer.prompt([
       {
@@ -60,7 +46,7 @@ class Query {
       );
     });
   }
-
+  // add role
   async addRole() {
     try {
       let departmentList;
@@ -111,7 +97,7 @@ class Query {
       console.log(err);
     }
   }
-
+  // add employee
   async addEmployee() {
     try {
       let roleList;
@@ -190,6 +176,7 @@ class Query {
       console.log(error);
     }
   }
+  // update employee role
   async updateEmployeeRole() {
     try {
       let employeeList;
@@ -253,17 +240,20 @@ class Query {
   }
 }
 
+// display query
 async function displayQuery(query) {
   await new Promise((resolve, reject) => {
     db.query(query, (err, result) => {
       if (err) {
         reject(err);
       } else {
-        console.table(result);
+        table = cTable.getTable(result);
+        console.table(table);
         resolve();
       }
     });
   });
 }
 
+// export query
 module.exports = Query;

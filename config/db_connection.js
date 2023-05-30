@@ -1,3 +1,4 @@
+// Purpose: Database connection
 const mysql = require("mysql2");
 const db = mysql.createConnection(
   {
@@ -9,4 +10,5 @@ const db = mysql.createConnection(
   console.log("Connected to the staff_db")
 );
 
+// Export the database connection
 module.exports = db;
