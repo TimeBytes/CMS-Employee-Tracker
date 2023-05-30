@@ -133,7 +133,6 @@ class Query {
             if (err) {
               reject(err);
             } else {
-              console.log(result);
               managerList = result.map((row) => row.name);
               managerList.unshift("None");
               resolve();
@@ -202,7 +201,6 @@ class Query {
             if (err) {
               reject(err);
             } else {
-              console.log(result);
               employeeList = result.map((row) => row.name);
               resolve();
             }
@@ -219,7 +217,6 @@ class Query {
           }
         });
       });
-      console.log({ employeeList, roleList });
       const userInput = await inquirer.prompt([
         {
           type: "list",
