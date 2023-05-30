@@ -31,7 +31,7 @@ When add an employee is selected, user is prompted with "What is the employee's 
 When update an employee is selected, user is prompted a list of employee's to pick from, then a list of roles you want to assign the employee
 ![screenshot of update an employee](assets/images/screenshot-updateemployeerole.png)
 
-Walkthrough video URL: https://youtu.be/8V2ZgPerhYY
+Walkthrough video URL: https://youtu.be/8V2ZgPerhYY  
 GitHub Repo: https://github.com/TimeBytes/CMS-Employee-Tracker
 
 ## Credits
